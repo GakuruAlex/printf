@@ -13,7 +13,8 @@ int main(void)
     printf("\nReturn value of my_printf is : %d \n",n);
 
     printf("Return value of printf on the same string is : %d \n",x);
-
+    my_printf("Character in my_printf :[%c]\n", 'H');
+    printf("Character:in printf :[%c]\n", 'H');
 
     return (1);
 }
