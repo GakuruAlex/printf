@@ -7,4 +7,5 @@
 /*Function prototypes*/
 int putchar(int c);
 int my_printf(const char *format, ...);
-#endif 
+int print_string(char *str);
+#endif

@@ -4,6 +4,8 @@ int my_printf(const char *format, ...)
     
     int return_value = 0, i = 0, print_int;
 
+    char * arg_string;
+
 
     va_list format_arg;
 
@@ -28,12 +30,17 @@ int my_printf(const char *format, ...)
                 i++;
                 return_value++;
             }
-            
+            else if (format[i + 1] == 's')
+            {
+                arg_string = va_arg(format_arg,char *);
+                int x = print_string(arg_string);
+                i++;
+                return_value += x;
+            }
         }
-        
-        
+
     }
-     
+
 }
 return return_value;
     }

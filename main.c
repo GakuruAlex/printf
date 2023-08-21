@@ -15,6 +15,8 @@ int main(void)
     printf("Return value of printf on the same string is : %d \n",x);
     my_printf("Character in my_printf :[%c]\n", 'H');
     printf("Character:in printf :[%c]\n", 'H');
+    my_printf("String in my_printf is :[%s]\n","I am a string !");
+    printf("String in printf is :[%s]\n", "I am a string !");
 
     return (1);
 }
