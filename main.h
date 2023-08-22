@@ -8,4 +8,5 @@
 int putchar(int c);
 int my_printf(const char *format, ...);
 int print_string(char *str);
+int print_decimal(int element);
 #endif

@@ -1,4 +1,9 @@
 #include "main.h"
+/*
+*print_string -Prints a given string
+*
+*Return: -Size of printed string
+*/
 int print_string(char *str)
 {
     int length, i = 0;

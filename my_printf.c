@@ -1,4 +1,9 @@
 #include "main.h"
+/*
+*my_printf - implementation of a custom print function
+*
+*Return: - Size of printed string
+*/
 int my_printf(const char *format, ...)
 {
     
@@ -36,6 +41,19 @@ int my_printf(const char *format, ...)
                 int x = print_string(arg_string);
                 i++;
                 return_value += x;
+            }
+            else if (format[i +1] == '%')
+            {
+                putchar('%');
+                i++;
+                return_value++;
+            }
+            else if (format[i + 1] == 'd')
+            {
+                int elem = va_arg(format_arg,int);
+                int length =print_decimal(elem);
+                return_value += length;
+                i++;
             }
         }
 
