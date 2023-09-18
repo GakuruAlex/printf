@@ -24,8 +24,7 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == 'c')
 				{
 					putchar(va_arg(format_arg, int));
-					i++;
-					character_value++;
+					i++, character_value++;
 				}
 				else if (format[i + 1] == 's')
 				{
@@ -35,8 +34,7 @@ int _printf(const char *format, ...)
 				else if (format[i + 1] == '%')
 				{
 					putchar('%');
-					i++;
-					character_value++;
+					i++, character_value++;
 				}
 				else if (format[i + 1] == 'd')
 				{
