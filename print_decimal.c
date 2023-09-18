@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /*
 *print_decimal -Recursively prints integers in decimal
 *

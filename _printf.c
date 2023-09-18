@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
                     character_value += print_decimal(va_arg(format_arg, int));
                     i++;
                     break;
-		case 'u':
+                case 'u':
                     character_value += print_unsigned(va_arg(format_arg, unsigned int));
                     i++;
                     break;
@@ -55,11 +55,21 @@ int _printf(const char *format, ...)
                     character_value += print_pointer(va_arg(format_arg, void *));
                     i++;
                     break;
-	    }
+                case 'r':
+                    putchar('%');
+                    putchar('r');
+                    i++, character_value += 2;
+                    break;
+                default:
+                    putchar('%');
+                    putchar(format[i + 1]);
+                    i++, character_value += 2;
+                    break;
+            }
         }
     }
     va_end(format_arg);
 
     return character_value;
-
 }
+
