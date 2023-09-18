@@ -11,19 +11,19 @@ int print_decimal(int element)
 
     if (element < 0)
 {
-    putchar('-');
+    _putchar('-');
     element = - element;
 }
     if (element < 10)
     {
-        putchar(element + '0');
+        _putchar(element + '0');
         length++;
 
     }
     else if(element / 10)
     {
         print_decimal(element / 10);
-        putchar(element % 10 + '0');
+        _putchar(element % 10 + '0');
         length++;
     }
     
