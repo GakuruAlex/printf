@@ -1,16 +1,17 @@
 #include "main.h"
-/*
-*print_string -Prints a given string
-*
-*Return: -Size of printed string
-*/
-int print_string(char *str)
-{
-    int length = strlen(str), i;
+#include <stdio.h>
 
-    for (i = 0; i < length; i++)
-    {
-        _putchar(str[i]);
+int print_string(char *str) {
+    int length = 0;
+
+    if (str == NULL) {
+        return -1;
+    }
+
+    while (*str != '\0') {
+        putchar(*str);
+        length++;
+        str++;
     }
 
     return length;
