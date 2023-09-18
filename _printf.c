@@ -5,7 +5,7 @@
 *
 *Return: - Size of printed string
 */
-int my_printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
     
     int return_value = 0, i = 0, print_int;
