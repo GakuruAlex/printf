@@ -1,68 +1,49 @@
-
 #include "main.h"
-/*
-*my_printf - implementation of a custom print function
-*
-*Return: - Size of printed string
-*/
 int _printf(const char *format, ...)
 {
-    
-    int return_value = 0, i = 0, print_int;
-
-    char * arg_string;
-
-
+    int i, return_value = 0;
     va_list format_arg;
 
     va_start(format_arg, format);
 
-    for (i;i <strlen(format);i++)
+    for (i = 0; (unsigned int)i < strlen(format); i++)
     {
-    if (format[i] != '\0' )
-    {
-        if (format[i] != '%')
+        if (format[i] != '\0')
         {
-            putchar(format[i]);
-            
-            return_value++;
-        }
-        else if (format[i] == '%')
-        {
-            if (format[i + 1] == 'c')
+            if (format[i] != '%')
             {
-                print_int = va_arg(format_arg, int);
-                putchar(print_int);
-                i++;
+                putchar(format[i]);
                 return_value++;
             }
-            else if (format[i + 1] == 's')
+            else if (format[i] == '%')
             {
-                arg_string = va_arg(format_arg,char *);
-                int x = print_string(arg_string);
-                i++;
-                return_value += x;
-            }
-            else if (format[i +1] == '%')
-            {
-                putchar('%');
-                i++;
-                return_value++;
-            }
-            else if (format[i + 1] == 'd')
-            {
-                int elem = va_arg(format_arg,int);
-                int length =print_decimal(elem);
-                return_value += length;
-                i++;
+                if (format[i + 1] == 'c')
+                {
+                    putchar(va_arg(format_arg, int));
+                    i++;
+                    return_value++;
+                }
+                else if (format[i + 1] == 's')
+                {
+                    return_value += print_string(va_arg(format_arg, char *));
+                    i++;
+                }
+                else if (format[i + 1] == '%')
+                {
+                    putchar('%');
+                    i++;
+                    return_value++;
+                }
+                else if (format[i + 1] == 'd')
+                {
+                    return_value += print_decimal(va_arg(format_arg, int));
+                    i++;
+                }
             }
         }
-
     }
 
+    va_end(format_arg);
+
+    return return_value;
 }
-return return_value;
-    }
-
-
-    

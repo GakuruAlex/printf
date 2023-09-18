@@ -6,18 +6,12 @@
 */
 int print_string(char *str)
 {
-    int length, i = 0;
+    int length = strlen(str), i;
 
-    length =strlen(str);
-
-    for (i; i < length; i++)
+    for (i = 0; i < length; i++)
     {
-        if (str[i] != '\0')
-        {
-              putchar(str[i]);
-
-        }
-
+        _putchar(str[i]);
     }
+
     return length;
 }
