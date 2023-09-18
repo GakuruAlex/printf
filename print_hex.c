@@ -1,9 +1,8 @@
-#include <stdio.h>
-
+#include "main.h"
 int print_hex(unsigned int value, int uppercase)
 {
     if (uppercase)
-        return printf("%X", value);
+        return print_hexadecimal(value, 1);
     else
-        return printf("%x", value);
+        return print_hexadecimal( value, 0);
 }

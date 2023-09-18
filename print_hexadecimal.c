@@ -1,23 +1,26 @@
 #include "main.h"
 
 
-int print_hexadecimal(unsigned int value)
-{
-int count = 0, i;
-int digits[8];
+int print_hexadecimal(unsigned int value, int uppercase)
+ {
+  int count = 0, i;
+  int digits[8];
 
-  for ( i = 0; i < 8; i++) {
+  for (i = 0; i < 8; i++) {
     digits[i] = value & 0xF;
     value >>= 4;
   }
 
-  
-  for ( i = 7; i >= 0; i--) {
+  for (i = 7; i >= 0; i--) {
     char digit = digits[i];
     if (digit < 10) {
       _putchar('0' + digit);
     } else {
-      _putchar('A' + digit - 10);
+      if (uppercase) {
+        _putchar('A' + digit - 10);
+      } else {
+        _putchar('a' + digit - 10);
+      }
     }
     count++;
   }
