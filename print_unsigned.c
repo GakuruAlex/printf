@@ -10,7 +10,7 @@ int print_unsigned(unsigned int value)
 
 	if (value >= 10)
 	{
-		length += print_unsigned int(value / 10);
+		length += print_unsigned(value / 10);
 	}
 	_putchar((value % 10) + '0');
 	length++;
