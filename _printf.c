@@ -38,6 +38,10 @@ int _printf(const char *format, ...)
                     character_value += print_decimal(va_arg(format_arg, int));
                     i++;
                     break;
+                case 'i':
+                    character_value += print_integer(va_arg(format_arg, int));
+                    i++;
+                    break;
                 case 'u':
                     character_value += print_unsigned(va_arg(format_arg, unsigned int));
                     i++;

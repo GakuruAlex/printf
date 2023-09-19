@@ -15,4 +15,5 @@ int print_unsigned(unsigned int value);
 int print_octal(unsigned int value);
 int print_hex(unsigned int value, int uppercase);
 int print_pointer(void *);
+int print_integer(int value);
 #endif
