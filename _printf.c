@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 /**
  * _printf - A function that outputs formatted string to stdout
  * @format: The string input to be formatted
@@ -10,6 +11,9 @@ int _printf(const char *format, ...)
     int character_value = 0;
     int count;
     va_list format_arg;
+
+    if (format == NULL)
+        return -1;
 
     va_start(format_arg, format);
     for (i = 0; format[i] != '\0'; i++)
@@ -28,10 +32,18 @@ int _printf(const char *format, ...)
                     i++, character_value++;
                     break;
                 case 's':
-                    character_value += print_string(va_arg(format_arg, char *));
-                    i++;
-                    break;
+                    {
+                        char *str = va_arg(format_arg, char *);
+                        if (str == NULL)
+                            character_value += print_string("(null)");
+                        else
+                            character_value += print_string(str);
+                        i++;
+                        break;
+                    }
                 case '%':
+                    if (format[i + 1] != '%')
+                        break;
                     _putchar('%');
                     i++, character_value++;
                     break;
