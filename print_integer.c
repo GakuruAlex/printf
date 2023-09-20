@@ -7,18 +7,18 @@
 int print_integer(int value)
 {
 	int length = 0;
+	bool isHex;
 
-	if (value < 0)
+	isHex =is_hexadecimal(value);
+
+	if (isHex)
 	{
-		_putchar('-');
-		length++;
-		value = -value;
+		length += print_hex(value, 0);
 	}
-	if (value >= 10)
+	if (!isHex)
 	{
-		length += print_integer(value / 10);
+		length += print_decimal(value);
 	}
-	_putchar((value % 10) + '0');
-	length++;
+	
 	return (length);
 }
