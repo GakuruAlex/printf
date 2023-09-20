@@ -11,6 +11,10 @@ int _printf(const char *format, ...)
     va_list format_arg;
 
     va_start(format_arg, format);
+    if (format == NULL)
+    {
+	    return (-1);
+    }
     for (i = 0; format[i] != '\0'; i++)
     {
         if (format[i] != '%')
@@ -35,13 +39,11 @@ int _printf(const char *format, ...)
                     i++, character_value++;
                     break;
                 case 'd':
-                    character_value += print_decimal(va_arg(format_arg, int));
-                    i++;
-                    break;
                 case 'i':
-                    character_value += print_integer(va_arg(format_arg, int));
-                    i++;
-                    break;
+    character_value += print_decimal(va_arg(format_arg, int));
+    i++;
+    break;
+
                 case 'u':
                     character_value += print_unsigned(va_arg(format_arg, unsigned int));
                     i++;
