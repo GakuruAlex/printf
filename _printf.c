@@ -8,6 +8,7 @@ int _printf(const char *format, ...)
 {
     int i = 0;
     int character_value = 0;
+    int count;
     va_list format_arg;
 
     va_start(format_arg, format);
@@ -36,10 +37,10 @@ int _printf(const char *format, ...)
                     break;
                 case 'd':
                 case 'i':
-    character_value += print_decimal(va_arg(format_arg, int));
-    i++;
-    break;
-
+                    count = print_decimal(va_arg(format_arg, int));
+                    character_value += count;
+                    i++;
+                    break;
                 case 'u':
                     character_value += print_unsigned(va_arg(format_arg, unsigned int));
                     i++;
