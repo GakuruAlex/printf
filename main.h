@@ -2,7 +2,9 @@
 #define MAIN_H
 /*Header Files*/
 #include<stdio.h>
+#include <ctype.h>
 #include<stdarg.h>
+#include <stdbool.h>
 #include<string.h>
 #include<stdint.h>
 /*Function prototypes*/
@@ -16,4 +18,5 @@ int print_octal(unsigned int value);
 int print_hex(unsigned int value, int uppercase);
 int print_pointer(void *);
 int print_integer(int value);
+bool is_hexadecimal(int value);
 #endif
