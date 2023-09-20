@@ -9,18 +9,17 @@ int print_decimal(int element)
 {
 	int count = 0;
 
-    if (element < 0)
-    {
-        _putchar('-');
-        element = -element;
-        count++;
-    }
-    if (element / 10)
-    {
-        count += print_decimal(element / 10);
-    }
-    _putchar((element % 10) + '0');
-    count++;
-
-    return count;
+	if (element < 0)
+	{
+		_putchar('-');
+		element = -element;
+		count++;
+	}
+	if (element / 10)
+	{
+		count += print_decimal(element / 10);
+	}
+	_putchar((element % 10) + '0');
+	count++;
+	return (count);
 }
